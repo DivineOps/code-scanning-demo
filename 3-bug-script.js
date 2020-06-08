@@ -1,3 +1,4 @@
+// Secrets committed in code
 const apiKey = "12345678901234567890123456789012-12345678-12345678";
 const db = "abc123.database.secure.windows.net"
 
@@ -6,6 +7,7 @@ const pg = require('pg');
 const app = require('express')();
 const pool = new pg.Pool();
  
+// This will produce a SQL injection and rate limiting alerts
 // Get a category from the database
 app.get("/category/:category", function (req, res) {
   
@@ -22,6 +24,7 @@ app.get("/category/:category", function (req, res) {
 
 });
 
+// This will produce an incorrect suffix alert
 // shortened endsWith function by one line of code
 function endsWith(x, y) {
   return x.lastIndexOf(y) === x.length - y.length;
